@@ -71099,13 +71099,11 @@ var Home = function Home() {
       }, "loading posts..."));
     }
 
-    if (posts === null) {
+    if (posts.length === 0) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         colSpan: "4"
       }, "there is no post yet.."));
-    }
-
-    if (posts) {
+    } else {
       return posts.map(function (post) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: post.id
@@ -71125,7 +71123,7 @@ var Home = function Home() {
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    title: "Laravel React Post"
+    title: "Laravel React Post CRUD"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/add",
     className: "btn btn-primary"

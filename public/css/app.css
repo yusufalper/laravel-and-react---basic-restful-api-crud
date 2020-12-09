@@ -10906,5 +10906,6 @@ a.text-dark:focus {
 .app_general {
   margin: 0 auto;
   max-width: 1200px;
+  padding: 20px;
 }
 

@@ -34,7 +34,7 @@ const Home = () => {
 
         }
 
-        if(posts === null){
+        if(posts.length === 0){
             return (
                 <tr>
                     <td colSpan="4">
@@ -43,33 +43,31 @@ const Home = () => {
                 </tr>
             );
 
-        }
-
-        if(posts){
+        }else{
             return (posts.map((post)=>{
                 return(
-                <tr key={post.id}>
-                    <td>{post.id}</td>
-                    <td>{post.title}</td>
-                    <td>{post.description}</td>
-                    <td>
-                        <Link
-                            className="btn btn-info"
-                            to={`/edit/${post.id}`}>
-                            Edit
-                        </Link>
-                        <button 
-                            className="btn btn-danger ml-1"
-                            onClick={() =>{
-                                api.deletePost(post.id).then(fetchPosts).catch(err => {
-                                    alert("failed");
-                                });
-                            }}
-                        >
-                            Delete
-                        </button>
-                    </td>
-                </tr>
+                    <tr key={post.id}>
+                        <td>{post.id}</td>
+                        <td>{post.title}</td>
+                        <td>{post.description}</td>
+                        <td>
+                            <Link
+                                className="btn btn-info"
+                                to={`/edit/${post.id}`}>
+                                Edit
+                            </Link>
+                            <button 
+                                className="btn btn-danger ml-1"
+                                onClick={() =>{
+                                    api.deletePost(post.id).then(fetchPosts).catch(err => {
+                                        alert("failed");
+                                    });
+                                }}
+                            >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
                 );
             }));
         }
@@ -77,7 +75,7 @@ const Home = () => {
 
     return(
         <AppContainer
-        title="Laravel React Post"
+        title="Laravel React Post CRUD"
         >
             <Link to="/add" className="btn btn-primary">Add Post</Link>
             <div className="table-responsive">
